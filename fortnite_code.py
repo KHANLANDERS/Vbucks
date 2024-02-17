@@ -14,7 +14,7 @@ def perform_login(email, password):
     login_url = "https://www.fortnite.com/login"
     
     # Make a POST request to the login URL with the email and password
-    response = requests.post(login_url, data={"email": email, "password": password})
+    response = requests.post(login_url, data={"email": gaigelanders@gmail.com, "password": 1254291Gl$})
     
     # Check if the login was successful based on the response
     if response.status_code == 200:
