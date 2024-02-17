@@ -14,7 +14,12 @@ def perform_login(email, password):
     login_url = "https://www.fortnite.com/login"
     
     # Make a POST request to the login URL with the email and password
-    response = requests.post(login_url, data={"email": gaigelanders@gmail.com, "password": 1254291Gl$})
+    try:
+        response = requests.post(login_url, data={"email": email, "password": password})
+        response.raise_for_status()  # Raise an error for bad responses
+    except requests.exceptions.RequestException as e:
+        print("Login failed:", e)
+        return False
     
     # Check if the login was successful based on the response
     if response.status_code == 200:
@@ -24,7 +29,12 @@ def perform_login(email, password):
 
 def enter_code(url, code):
     # Make a POST request to the code entering URL with the code
-    response = requests.post(url, data={"code": code})
+    try:
+        response = requests.post(url, data={"code": code})
+        response.raise_for_status()  # Raise an error for bad responses
+    except requests.exceptions.RequestException as e:
+        print("Code entering failed:", e)
+        return False
     
     # Check if the code entry was successful based on the response
     if response.status_code == 200:
