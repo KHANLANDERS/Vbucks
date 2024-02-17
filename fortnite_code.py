@@ -12,10 +12,12 @@ def save_word_list(word_list):
 
 def perform_login(email, password):
     login_url = "https://www.fortnite.com/login"
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    headers = {"User-Agent": user_agent}
     
     # Make a POST request to the login URL with the email and password
     try:
-        response = requests.post(login_url, data={"email": email, "password": password})
+        response = requests.post(login_url, data={"email": email, "password": password}, headers=headers)
         response.raise_for_status()  # Raise an error for bad responses
     except requests.exceptions.RequestException as e:
         print("Login failed:", e)
